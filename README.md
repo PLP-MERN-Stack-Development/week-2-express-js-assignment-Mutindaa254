@@ -1,63 +1,73 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19872848&assignment_repo_type=AssignmentRepo)
-# Express.js RESTful API Assignment
+# 🚂 Week 2: Express.js – Server-Side Framework
 
-This assignment focuses on building a RESTful API using Express.js, implementing proper routing, middleware, and error handling.
+## 🚀 Objective
+Build a RESTful API using **Express.js** that implements:
+- Standard CRUD operations
+- Proper routing structure
+- Middleware implementation (logging, authentication, validation)
+- Robust error handling
+- Advanced features like filtering, pagination, and search
 
-## Assignment Overview
+---
 
-You will:
-1. Set up an Express.js server
-2. Create RESTful API routes for a product resource
-3. Implement custom middleware for logging, authentication, and validation
-4. Add comprehensive error handling
-5. Develop advanced features like filtering, pagination, and search
+## 📂 Tasks Overview
 
-## Getting Started
+### ✅ Task 1: Express.js Setup
+- Initialize Node.js project
+- Install dependencies
+- Create a basic Express server (`server.js`) on port `3000`
+- Add a test route: `GET /` → returns `"Hello World"`
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Run the server:
-   ```
-   npm start
-   ```
+### ✅ Task 2: RESTful API Routes – `/api/products`
+Product fields:
+- `id` (UUID)
+- `name` (string)
+- `description` (string)
+- `price` (number)
+- `category` (string)
+- `inStock` (boolean)
 
-## Files Included
+**Endpoints:**
+| Method | Endpoint              | Description              |
+|--------|-----------------------|--------------------------|
+| GET    | `/api/products`       | List all products        |
+| GET    | `/api/products/:id`   | Get product by ID        |
+| POST   | `/api/products`       | Create new product       |
+| PUT    | `/api/products/:id`   | Update existing product  |
+| DELETE | `/api/products/:id`   | Delete a product         |
 
-- `Week2-Assignment.md`: Detailed assignment instructions
-- `server.js`: Starter Express.js server file
-- `.env.example`: Example environment variables file
+### ✅ Task 3: Middleware
+- **Logger** – logs method, URL, and timestamp
+- **JSON parser** – parses incoming `application/json`
+- **Authentication** – validates API key in headers
+- **Validation** – ensures product data is valid for POST/PUT
 
-## Requirements
+### ✅ Task 4: Error Handling
+- Global error handler middleware
+- Custom error classes: `NotFoundError`, `ValidationError`, etc.
+- Error responses with appropriate status codes
+- Async error handling using wrapper or try/catch
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Postman, Insomnia, or curl for API testing
+### ✅ Task 5: Advanced Features
+- Filter products by `category` (e.g., `GET /api/products?category=electronics`)
+- Pagination (e.g., `GET /api/products?page=2&limit=10`)
+- Search products by name (`GET /api/products/search?name=solar`)
+- Product statistics route (`GET /api/products/stats`) → return count by category
 
-## API Endpoints
+---
 
-The API will have the following endpoints:
+## 🧪 Example API Usage
 
-- `GET /api/products`: Get all products
-- `GET /api/products/:id`: Get a specific product
-- `POST /api/products`: Create a new product
-- `PUT /api/products/:id`: Update a product
-- `DELETE /api/products/:id`: Delete a product
+### 📥 Create a Product
+```http
+POST /api/products
+Content-Type: application/json
+x-api-key: your-api-key
 
-## Submission
-
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
-
-1. Complete all the required API endpoints
-2. Implement the middleware and error handling
-3. Document your API in the README.md
-4. Include examples of requests and responses
-
-## Resources
-
-- [Express.js Documentation](https://expressjs.com/)
-- [RESTful API Design Best Practices](https://restfulapi.net/)
-- [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) 
+{
+  "name": "Solar Panel",
+  "description": "High efficiency",
+  "price": 199.99,
+  "category": "Electronics",
+  "inStock": true
+}

@@ -1,0 +1,125 @@
+{
+  "info": {
+    "name": "Express API Week 2",
+    "_postman_id": "12345678-abcd-1234-abcd-1234567890ab",
+    "description": "API Collection for testing Week 2 Express.js project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "🌍 Hello World (Root)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": [""]
+        }
+      }
+    },
+    {
+      "name": "📖 Get All Products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products"]
+        }
+      }
+    },
+    {
+      "name": "➕ Create Product",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "x-api-key",
+            "value": "your_api_key_here"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Smartphone\",\n    \"description\": \"Latest Android smartphone\",\n    \"price\": 799,\n    \"category\": \"electronics\",\n    \"inStock\": true\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products"]
+        }
+      }
+    },
+    {
+      "name": "✏️ Update Product",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "x-api-key",
+            "value": "your_api_key_here"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"price\": 899,\n    \"inStock\": false\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/products/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products", ":id"]
+        }
+      }
+    },
+    {
+      "name": "🗑️ Delete Product",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "your_api_key_here"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/products/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products", ":id"]
+        }
+      }
+    },
+    {
+      "name": "📊 Get Product Stats",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/products/stats",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products", "stats"]
+        }
+      }
+    }
+  ]
+}
